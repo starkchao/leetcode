@@ -6,17 +6,14 @@
 public class Solution{
 	public int[] twoSum(int[] nums, int target){
 		//思路：题目中明确说明解法是唯一存在的，所以target必然是数组中某两个数的和。利用map集合来存储target与nums[i]的差，只需要遍历一遍就可以找到所需要的下标。
-		HashMap<Integer,Integer> map = new 	HashMap<Integer,Integer>();
-		
-		for(int i = 0; i <　nums.length; i++){
-			if(map.get(nums[i]) != null){
-				int[] result = {map.get(nums[i]),i};
-				return result;
+		Map<Integer, Integer> map = new HashMap<>();
+		for (int i = 0; i < nums.length; i++) {
+			int complement = target - nums[i];
+			if (map.containsKey(complement)) {
+				return new int[] { map.get(complement), i };
 			}
-			map.put(targer - nums[i],i);
+			map.put(nums[i], i);
 		}
-		
-		int[] result = {};
-        return result;
+		throw new IllegalArgumentException("No two sum solution");
 	}
 }
