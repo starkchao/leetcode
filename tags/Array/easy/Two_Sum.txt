@@ -1,0 +1,22 @@
+//Description:
+//Given an array of integers, return indices of the two numbers such that they add up to a specific target.
+//You may assume that each input would have exactly one solution, and you may not use the same element twice.
+//-------------------------------------------
+//Solution:
+public class Solution{
+	public int[] twoSum(int[] nums, int target){
+		//思路：题目中明确说明解法是唯一存在的，所以target必然是数组中某两个数的和。利用map集合来存储target与nums[i]的差，只需要遍历一遍就可以找到所需要的下标。
+		HashMap<Integer,Integer> map = new 	HashMap<Integer,Integer>();
+		
+		for(int i = 0; i <　nums.length; i++){
+			if(map.get(nums[i]) != null){
+				int[] result = {map.get(nums[i]),i};
+				return result;
+			}
+			map.put(targer - nums[i],i);
+		}
+		
+		int[] result = {};
+        return result;
+	}
+}
