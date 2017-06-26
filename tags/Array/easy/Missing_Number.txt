@@ -6,10 +6,12 @@
 //Solution:
 public class Solution{
 	public int missingNumber(int[] nums){
-		//思路：完整的数组是从0到n，
-		int sum = nums.length;
+		//思路：完整的数组是从0到n，只缺少一个数字。
+		//利用等差数列求和得到0到n的，遍历原数组，相减就是缺少的数字。
+		int n = nums.length;
+		int sum = n * (n + 1) / 2;
 		for(int i = 0; i < nums.length; i++){
-			sum += i - nums[i];
+			sum -= nums[i];
 		}
 		return sum;
 	}
