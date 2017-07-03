@@ -1,0 +1,26 @@
+//Description:
+//Given an array nums, write a function to move all 0's to the end of it while maintaining the relative order of the non-zero //elements.
+//For example, given nums = [0, 1, 0, 3, 12], after calling your function, nums should be [1, 3, 12, 0, 0].
+//-------------------------------------------
+//Solution:
+public class Solution{
+	public void moveZeroes(int[] nums){
+		//思路：用两个指针记录要交换的两个数字的位置。找到不为零的数字后，left与right处的数字交换，并将指针向后移动。
+		if(nums.length == 0 || nums.length == 1){
+			return;
+		}
+		int left = 0;
+		for(int right = 0; right < nums.length;){
+			if(nums[right]){
+				right++;
+				continue;
+			}
+			if(left != right){
+				nums[left] = nums[right];
+				nums[right] = 0;
+			}
+			left++;
+			right++;
+		}
+	}
+}
