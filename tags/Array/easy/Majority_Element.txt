@@ -1,0 +1,24 @@
+//Description:
+//Given an array of size n, find the majority element. The majority element is the element that appears more than ⌊ n/2 ⌋ times.
+//You may assume that the array is non-empty and the majority element always exist in the array.
+//-------------------------------------------
+//Solution:
+public class Solution{
+	public int majorityElement(int[] nums) {
+		//思路：由于要找到的数字在数组中出现n/2次以上，所以利用不同的数字抵消计数值，
+        int count = 1;
+		int current = nums[0];
+		for(int i = 1; i < nums.length;i++){
+			if(current == nums[i]){
+				count++;
+			}else{
+				if(count > 0){
+					count--;
+				}else{
+					current = nums[i];
+				}
+			}
+		}
+		return current;
+    }
+}
